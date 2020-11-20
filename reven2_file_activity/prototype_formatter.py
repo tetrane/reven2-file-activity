@@ -107,6 +107,8 @@ def get_argument_values(point, proto):
         if not proto_arg.is_void():
             if is_64bit:
                 arg_value = next(iargs)
+                if len(arg_value) > proto_arg.type.size:
+                    arg_value = arg_value[:proto_arg.type.size]
             else:
                 type_size = proto_arg.type.size
                 if type_size is None:
