@@ -100,6 +100,9 @@ def ret_access(point, logical):
     )
 
     for access in accesses:
+        instr = access.transition.instruction
+        if instr is None or instr.mnemonic != 'ret':
+            continue
         return access.transition
 
     return None
