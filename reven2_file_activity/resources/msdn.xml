@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><msdn>
+<fcts>
+	<fct>
+		<name>NtCreateFile</name>
+		<proto>NTSTATUS NtCreateFile( __out PHANDLE FileHandle, __in ACCESS_MASK DesiredAccess, __in POBJECT_ATTRIBUTES ObjectAttributes, __out PIO_STATUS_BLOCK IoStatusBlock, __in PLARGE_INTEGER AllocationSize, __in ULONG FileAttributes, __in ULONG ShareAccess, __in ULONG CreateDisposition, __in ULONG CreateOptions, __in PVOID EaBuffer, __in ULONG EaLength);</proto>
+		<cat>None</cat>
+		<file>None</file>
+	</fct>
+	<fct>
+		<name>NtOpenFile</name>
+		<proto>NTSTATUS NtOpenFile( __out PHANDLE FileHandle, __in ACCESS_MASK DesiredAccess, __in POBJECT_ATTRIBUTES ObjectAttributes, __out PIO_STATUS_BLOCK IoStatusBlock,  __in ULONG ShareAccess, __in ULONG OpenOptions);</proto>
+		<cat>None</cat>
+		<file>None</file>
+	</fct>
+	<fct>
+		<name>NtOpenDirectoryObject</name>
+		<proto>NTSTATUS NtOpenDirectoryObject( __out PHANDLE DirectoryHandle, __in ACCESS_MASK DesiredAccess, __in POBJECT_ATTRIBUTES ObjectAttributes);</proto>
+		<cat>None</cat>
+		<file>None</file>
+	</fct>
+	<fct>
+		<name>NtQueryAttributesFile</name>
+		<proto>NTSTATUS NtQueryAttributesFile( __in POBJECT_ATTRIBUTES ObjectAttributes, __out PPFILE_BASIC_INFORMATION FileInformation);</proto>
+		<cat>None</cat>
+		<file>None</file>
+	</fct>
+	<fct>
+		<name>NtSetInformationFile</name>
+		<proto>NTSTATUS NtSetInformationFile( __in HANDLE FileHandle, __out PIO_STATUS_BLOCK IoStatusBlock, __in PVOID FileInformation, __in ULONG Length, __in FILE_INFORMATION_CLASS FileInformationClass);</proto>
+		<cat>None</cat>
+		<file>None</file>
+	</fct>
+	<fct>
+		<name>NtReadFile</name>
+		<proto>NTSTATUS NtReadFile( __in HANDLE FileHandle, __in_opt HANDLE Event, __in_opt PIO_APC_ROUTINE ApcRoutine, __in_opt PVOID ApcContext, __out PIO_STATUS_BLOCK IoStatusBlock, __out PVOID Buffer, __in ULONG Length, __in_opt PLARGE_INTEGER ByteOffset, __in_opt PULONG Key);</proto>
+		<cat>None</cat>
+		<file>None</file>
+	</fct>
+	<fct>
+		<name>NtWriteFile</name>
+		<proto>NTSTATUS NtWriteFile( __in HANDLE FileHandle, __in_opt HANDLE Event, __in_opt PIO_APC_ROUTINE ApcRoutine, __in_opt PVOID ApcContext, __out PIO_STATUS_BLOCK IoStatusBlock, __out PVOID Buffer, __in ULONG Length, __in_opt PLARGE_INTEGER ByteOffset, __in_opt PULONG Key);</proto>
+		<cat>None</cat>
+		<file>None</file>
+	</fct>
+</fcts>
+</msdn>
