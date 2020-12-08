@@ -21,7 +21,7 @@ def _get_filepath_in_object_attributes(ctx, object_attributes_addr):
     size = ctx.read(addr_string, U16)
     addr_buffer = ctx.read(addr_string + 0x8, Pointer(USize))
     try:
-        return ctx.read(addr_buffer, CString(encoding=Encoding.Utf16, max_character_count=size))
+        return ctx.read(addr_buffer, CString(encoding=Encoding.Utf16, max_size=size))
     except (UnicodeDecodeError, RuntimeError):
         return None
 
