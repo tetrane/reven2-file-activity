@@ -1,6 +1,7 @@
 import argparse
 import itertools
 from enum import Enum as _Enum
+from collections import OrderedDict
 
 import reven2
 from reven2.types import CString, Encoding, Pointer, U16, USize
@@ -52,7 +53,7 @@ class FileActivityEvent(object):
     @property
     def args(self):
         if self._args is None and self.proto is not None:
-            self._args = {}
+            self._args = OrderedDict()
             for info, value in get_argument_values(self.tr, self.proto):
                 self._args[info.name] = Argument(info, value)
         return self._args
