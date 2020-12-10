@@ -74,7 +74,7 @@ class FileActivityEvent(object):
 
     @property
     def ret_tr(self):
-        if type is not None and type(self._ret_tr) != reven2.trace.Transition:
+        if self._ret_tr is not None and type(self._ret_tr) != reven2.trace.Transition:
             self._ret_tr = get_ret_point(self.call_tr)
         return self._ret_tr
 
