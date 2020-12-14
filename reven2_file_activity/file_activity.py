@@ -119,7 +119,7 @@ class FileActivityOpenEvent(FileActivityEvent):
         if self._handle is None and ("FileHandle" in self.args or "DirectoryHandle" in self.args):
             value = self.args["FileHandle"].value if "FileHandle" in self.args else self.args["DirectoryHandle"].value
             ptr = Pointer(USize).parse(value, self.ctx)
-            self._handle = self.ret_tr.context_before().read(ptr, 8)
+            self._handle = self.ret_tr.context_before().read(ptr, USize)
         return self._handle
 
     def __str__(self):
@@ -163,7 +163,7 @@ class FileActivityAccessEvent(FileActivityEvent):
     def handle(self):
         if self._handle is None and "FileHandle" in self.args:
             value = self.args["FileHandle"].value
-            self._handle = Pointer(USize).parse(value, self.ctx)
+            self._handle = USize.parse(value, self.ctx)
         return self._handle
 
     def __str__(self):
