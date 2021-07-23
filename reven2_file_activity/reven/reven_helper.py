@@ -19,19 +19,6 @@ def read_reg_after(point, reg, raw=True):
     return point.context_after().read(reg, raw=raw)
 
 
-def symbol_name_after(point):
-    try:
-        location = point.context_after().ossi.location()
-        if location is None:
-            raise RuntimeError("Cannot resolve ossi location")
-        if location.symbol is None:
-            raise RuntimeError("Ossi location is not linked to a symbol")
-        return location.symbol.name
-    except RuntimeError as e:
-        printerr("WAR: No symbol at #{}: {}".format(point.id, e))
-        return None
-
-
 def read_addr_before(point, address, size, raw=True):
     a = reven2.address.LogicalAddress(address)
     return point.context_before().read(a, size, raw=raw)
