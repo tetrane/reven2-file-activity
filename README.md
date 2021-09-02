@@ -25,13 +25,6 @@ This script can only be run on Debian Buster.
 
 The script requires python 3.
 
-The script depends on libclang 7 being installed on the machine that runs the script.
-For Debian Stretch/Buster, you can install it this way:
-
-```
-$ sudo apt install libclang1-7
-```
-
 The script requires a reven-enabled virtual environment.
 Make sure you are in such an environment, and then run:
 
