@@ -187,7 +187,7 @@ class FileActivity(object):
     def __init__(self, rvn):
         self._rvn = rvn
         self._call_info = CallInfo(
-            msdn_xml, msdn_typedefs_conf
+            rvn, msdn_xml, msdn_typedefs_conf
         )
 
         binary = "c:/windows/system32/ntoskrnl.exe"
