@@ -16,11 +16,6 @@ The script allows to filter results by a specific PID of a process of interest.
 Please use the `--help` switch for more information on the parameters accepted by the script.
 
 
-## Prerequisite
-
-This script can only be run on Debian Buster.
-
-
 ## Installing
 
 The script requires python 3.
