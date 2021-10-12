@@ -16,21 +16,9 @@ The script allows to filter results by a specific PID of a process of interest.
 Please use the `--help` switch for more information on the parameters accepted by the script.
 
 
-## Prerequisite
-
-This script can only be run on Debian Buster.
-
-
 ## Installing
 
 The script requires python 3.
-
-The script depends on libclang 7 being installed on the machine that runs the script.
-For Debian Stretch/Buster, you can install it this way:
-
-```
-$ sudo apt install libclang1-7
-```
 
 The script requires a reven-enabled virtual environment.
 Make sure you are in such an environment, and then run:

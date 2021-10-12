@@ -25,10 +25,10 @@ def clang_parse(proto_parser, proto_str, callconv):
 
 class CallInfo(object):
     def __init__(
-        self, msdn_xml, msdn_typedefs_conf
+        self, srv, msdn_xml, msdn_typedefs_conf
     ):
         self.msdn_xml = MsdnXmlFile(msdn_xml)
-        self.proto_parser = ProtoStrParser(msdn_typedefs_conf)
+        self.proto_parser = ProtoStrParser(srv, msdn_typedefs_conf)
 
     @functools.lru_cache(maxsize=2048)
     def resolve_proto(self, symbol_name):
