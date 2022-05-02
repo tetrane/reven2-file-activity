@@ -18,12 +18,16 @@ from .reven.reven_helper import get_ret_point
 
 def _get_filepath_in_object_attributes(ctx, object_attributes_addr):
     addr_string_pointer = object_attributes_addr + 0x10
-    addr_string = ctx.read(addr_string_pointer, Pointer(USize))
-    size = ctx.read(addr_string, U16)
-    addr_buffer = ctx.read(addr_string + 0x8, Pointer(USize))
     try:
-        return ctx.read(addr_buffer, CString(encoding=Encoding.Utf16, max_size=size))
-    except (UnicodeDecodeError, RuntimeError):
+        addr_string = ctx.read(addr_string_pointer, Pointer(USize))
+        size = ctx.read(addr_string, U16)
+        addr_buffer = ctx.read(addr_string + 0x8, Pointer(USize))
+        try:
+            return ctx.read(addr_buffer, CString(encoding=Encoding.Utf16, max_size=size))
+        except UnicodeDecodeError:
+            return None
+    except RuntimeError:
+        # Something wasn't mapped
         return None
 
 
