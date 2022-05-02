@@ -19,11 +19,10 @@ from .reven.reven_helper import get_ret_point
 def _get_filepath_in_object_attributes(ctx, object_attributes_addr):
     addr_string_pointer = object_attributes_addr + 0x10
     try:
-        addr_string = ctx.read(addr_string_pointer, Pointer(USize))
+        addr_string = reven2.address.LogicalAddress(ctx.read(addr_string_pointer, USize))
         size = ctx.read(addr_string, U16)
-        addr_buffer = ctx.read(addr_string + 0x8, Pointer(USize))
         try:
-            return ctx.read(addr_buffer, CString(encoding=Encoding.Utf16, max_size=size))
+            return ctx.deref(addr_string + 0x8, Pointer(CString(encoding=Encoding.Utf16, max_size=size)))
         except UnicodeDecodeError:
             return None
     except RuntimeError:
